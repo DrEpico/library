@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const mylibrary = [];
 
 function Book(title, author, pages, read) {
@@ -19,13 +20,18 @@ const tempbook2 = new Book("Spare", "Prince Harry", 416, false);
 mylibrary.push(tempbook1);
 mylibrary.push(tempbook2);
 
+const inputField = document.querySelector("input");
+const author = document.querySelector("#author");
+const title = document.querySelector("#title");
+const pages = document.querySelector("#author");
+const read = document.querySelector("#read");
 function addBookToLibrary(){
-    const title = prompt("Enter book title:");
-    const author = prompt("Enter book  author:")
-    const pages = prompt("Enter number of pages:");
-    const read = confirm("Have you read this book?");
+    const authorInput = author.innerHTML;
+    const titleInput = title.innerHTML;
+    const pagesInput = pages.innerHTML;
+    const readInput = read.innerHTML;
 
-    const newBook = new Book(title, author, pages, read);
+    const newBook = new Book(authorInput, titleInput, pagesInput, readInput);
     mylibrary.push(newBook)
 }
 
