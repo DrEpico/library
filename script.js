@@ -6,8 +6,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages; 
     this.read = read;
-    // eslint-disable-next-line func-names
-    this.info = function() {
+    this.info = () => {
         const readStatus = this.read ? "has been read" : "not read yet";
         return `${title  } by ${  author  }, ${  pages  } pages, ${  readStatus}`;
     }
@@ -36,35 +35,35 @@ function addBookToLibrary(){
 }
 
 function displayBooks() {
-    const table = document.createElement("table");
-    table.innerHTML = `
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Pages</th>
-        <th>Read</th>
-      </tr>
-    `;
+  const table = document.createElement("table");
+  table.innerHTML = `
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Pages</th>
+      <th>Read</th>
+    </tr>
+  `;
 
-    for (let i = 0; i < mylibrary.length; i++) {
-        const book = mylibrary[i];
-        const row = table.insertRow();
-    
-        const titleCell = row.insertCell();
-        titleCell.textContent = book.title;
-    
-        const authorCell = row.insertCell();
-        authorCell.textContent = book.author;
-    
-        const pagesCell = row.insertCell();
-        pagesCell.textContent = book.pages;
-    
-        const readCell = row.insertCell();
-        readCell.textContent = book.read ? "Read" : "Not read yet";
-      }
-    
-      document.body.appendChild(table);
+  for (let i = 0; i < mylibrary.length; i++) {
+      const book = mylibrary[i];
+      const row = table.insertRow();
+  
+      const titleCell = row.insertCell();
+      titleCell.textContent = book.title;
+  
+      const authorCell = row.insertCell();
+      authorCell.textContent = book.author;
+  
+      const pagesCell = row.insertCell();
+      pagesCell.textContent = book.pages;
+  
+      const readCell = row.insertCell();
+      readCell.textContent = book.read ? "Read" : "Not read yet";
     }
+  
+  document.body.appendChild(table);
+}
     
 const addBookBtn = document.getElementById("add-book-btn");
 addBookBtn.addEventListener("click", () => {
