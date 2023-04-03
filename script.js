@@ -29,9 +29,9 @@ function addBookToLibrary(){
     const authorInput = author.innerHTML;
     const titleInput = title.innerHTML;
     const pagesInput = pages.innerHTML;
-    const readInput = read.innerHTML;
+    // const readInput = read.innerHTML;
 
-    const newBook = new Book(authorInput, titleInput, pagesInput, readInput);
+    const newBook = new Book(authorInput, titleInput, pagesInput);
     mylibrary.push(newBook)
 }
 
