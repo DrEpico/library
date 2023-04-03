@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const mylibrary = [];
 
 function Book(title, author, pages, read) {
@@ -28,9 +27,9 @@ function addBookToLibrary(){
     const authorInput = author.value;
     const titleInput = title.value;
     const pagesInput = pages.value;
-    const readInput = read.checked;
+    const readStatus = read ? "has been read" : "not read yet";
 
-    const newBook = new Book(authorInput, titleInput, pagesInput, readInput);
+    const newBook = new Book(titleInput, authorInput, pagesInput, readStatus);
     mylibrary.push(newBook)
 }
 
