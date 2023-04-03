@@ -23,15 +23,15 @@ mylibrary.push(tempbook2);
 const inputField = document.querySelector("input");
 const author = document.querySelector("#author");
 const title = document.querySelector("#title");
-const pages = document.querySelector("#author");
+const pages = document.querySelector("#pages");
 const read = document.querySelector("#read");
 function addBookToLibrary(){
-    const authorInput = author.innerHTML;
-    const titleInput = title.innerHTML;
-    const pagesInput = pages.innerHTML;
-    // const readInput = read.innerHTML;
+    const authorInput = author.value;
+    const titleInput = title.value;
+    const pagesInput = pages.value;
+    const readInput = read.checked;
 
-    const newBook = new Book(authorInput, titleInput, pagesInput);
+    const newBook = new Book(authorInput, titleInput, pagesInput, readInput);
     mylibrary.push(newBook)
 }
 
