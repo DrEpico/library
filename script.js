@@ -1,14 +1,18 @@
 const mylibrary = [];
 
 function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages; 
-    this.read = read;
-    this.info = () => {
-        const readStatus = this.read ? "has been read" : "not read yet";
-        return `${title  } by ${  author  }, ${  pages  } pages, ${  readStatus}`;
-    }
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.info = () => {
+    const readStatus = this.read ? "has been read" : "not read yet";
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}`;
+  };
+
+  Book.prototype.toggleRead = () => {
+    this.read = !this.read;
+  };
 }
 
 const tempbook1 = new Book("Harry Potter and the Deathly Hallows", "J. K. Rowling", 607, true);
@@ -46,6 +50,7 @@ function displayBooks() {
 
   for (let i = 0; i < mylibrary.length; i++) {
     const book = mylibrary[i];
+    
     const row = table.insertRow();
 
     const titleCell = row.insertCell();
@@ -59,6 +64,15 @@ function displayBooks() {
 
     const readCell = row.insertCell();
     readCell.textContent = book.read ? "Read" : "Not read yet";
+
+    const deleteCell = row.insertCell();
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+    deleteBtn.addEventListener("click", () => {
+      mylibrary.splice(i, 1);
+      row.remove();
+    });
+    deleteCell.appendChild(deleteBtn);
   }
   
   document.body.appendChild(table);
