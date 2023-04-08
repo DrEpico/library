@@ -45,12 +45,13 @@ function displayBooks() {
       <th>Author</th>
       <th>Pages</th>
       <th>Read</th>
+      <th>Action</th>
     </tr>
   `;
 
   for (let i = 0; i < mylibrary.length; i++) {
     const book = mylibrary[i];
-    
+
     const row = table.insertRow();
 
     const titleCell = row.insertCell();
@@ -65,6 +66,16 @@ function displayBooks() {
     const readCell = row.insertCell();
     readCell.textContent = book.read ? "Read" : "Not read yet";
 
+    const actionCell = row.insertCell();
+    const toggleReadBtn = document.createElement("button");
+    toggleReadBtn.textContent = book.read ? "Mark as unread" : "Mark as read";
+    toggleReadBtn.addEventListener("click", () => {
+      book.toggleRead();
+      readCell.textContent = book.read ? "Read" : "Not read yet";
+      toggleReadBtn.textContent = book.read ? "Mark as unread" : "Mark as read";
+    });
+    actionCell.appendChild(toggleReadBtn);
+
     const deleteCell = row.insertCell();
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "X";
@@ -74,7 +85,7 @@ function displayBooks() {
     });
     deleteCell.appendChild(deleteBtn);
   }
-  
+
   document.body.appendChild(table);
 }
     
