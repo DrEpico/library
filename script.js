@@ -45,21 +45,21 @@ function displayBooks() {
   `;
 
   for (let i = 0; i < mylibrary.length; i++) {
-      const book = mylibrary[i];
-      const row = table.insertRow();
-  
-      const titleCell = row.insertCell();
-      titleCell.textContent = book.title;
-  
-      const authorCell = row.insertCell();
-      authorCell.textContent = book.author;
-  
-      const pagesCell = row.insertCell();
-      pagesCell.textContent = book.pages;
-  
-      const readCell = row.insertCell();
-      readCell.textContent = book.read ? "Read" : "Not read yet";
-    }
+    const book = mylibrary[i];
+    const row = table.insertRow();
+
+    const titleCell = row.insertCell();
+    titleCell.textContent = book.title;
+
+    const authorCell = row.insertCell();
+    authorCell.textContent = book.author;
+
+    const pagesCell = row.insertCell();
+    pagesCell.textContent = book.pages;
+
+    const readCell = row.insertCell();
+    readCell.textContent = book.read ? "Read" : "Not read yet";
+  }
   
   document.body.appendChild(table);
 }
